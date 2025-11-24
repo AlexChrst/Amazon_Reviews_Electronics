@@ -6,7 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+
+logs/ 
+# Do not export the logs
 data/
+# Do not export the datasets
+
 # Distribution / packaging
 .Python
 build/
