@@ -1,9 +1,9 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
-from logger import logger
+from ..logger import logger
 from sklearn.model_selection import train_test_split
 from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-from config import ValueConfig
+from ..config import ValueConfig
 
 
 

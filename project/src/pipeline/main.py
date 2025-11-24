@@ -1,6 +1,6 @@
-from data_import_export import import_data, export_data
-from clean_data import clean_dataset
-from vectorization_prediction import vectorize_texts, train_and_predict
+from .data_import_export import import_data, export_data
+from .clean_data import clean_dataset
+from .vectorization_prediction import vectorize_texts, train_and_predict
 
 if __name__ == "__main__":
     reviews = import_data()
