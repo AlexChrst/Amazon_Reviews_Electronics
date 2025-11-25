@@ -6,7 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
-
+models/
+# Do not export train algorithms
 logs/ 
 # Do not export the logs
 data/
