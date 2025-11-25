@@ -1,4 +1,5 @@
 from ..logger import logger
+import re
 
 def clean_dataset(reviews):
     reviews = clean_duplicated(reviews)
