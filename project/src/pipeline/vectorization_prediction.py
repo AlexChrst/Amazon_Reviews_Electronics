@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from ..config import ValueConfig
+import pickle
 
 
 
@@ -27,11 +28,13 @@ def vectorize_texts(reviews):
 
     X = vectorizer_tf_idf.fit_transform(reviews['reviewText'])
     logger.info(f"Vectorization completed, size of the matrix : {X.shape}")
-    return X
+    logger.info(f"Vectorizer saved at {ValueConfig.VECTORIZER_PATH}")
+
+    return X, vectorizer_tf_idf
 
 
-def train_and_predict(X, reviews):  
-    model, X_test, y_test, X_train, y_train = train_predictive_model(X, reviews)
+def train_and_predict(X, reviews, vectorizer):  
+    model, X_test, y_test, X_train, y_train = train_predictive_model(X, reviews, vectorizer)
     predictions = model_predict(model, X_test)
     metrics_test(y_test, predictions)
     if ValueConfig.TRAIN_METRICS:
@@ -39,12 +42,17 @@ def train_and_predict(X, reviews):
     return model
 
 
-def train_predictive_model(X, reviews):
+def train_predictive_model(X, reviews, vectorizer):
     y = reviews['overall']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
     classifier = LinearSVC()
     classifier.fit(X_train, y_train)
     logger.info("Model trained")
+
+    with open(ValueConfig.MODEL_PATH, 'wb') as f:
+        pickle.dump({"vectorizer": vectorizer, "model": classifier}, f)
+
+    logger.info(f"Model + vectorizer saved at {ValueConfig.MODEL_PATH}")
     return classifier, X_test, y_test, X_train, y_train
 
 
