@@ -8,8 +8,8 @@ if __name__ == "__main__":
         reviews = clean_dataset(reviews)
         export_data(reviews)
 
-    X = vectorize_texts(reviews)
-    model = train_and_predict(X, reviews)
+    X, vectorizer = vectorize_texts(reviews)
+    model = train_and_predict(X, reviews, vectorizer)
     
 
     
