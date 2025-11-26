@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+notebooks/
+# Do not export Jupyter notebooks
 models/
 # Do not export train algorithms
 logs/ 
