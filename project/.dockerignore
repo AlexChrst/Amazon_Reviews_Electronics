@@ -1,0 +1,17 @@
+# This file specifies files and directories that should be ignored by Docker when building an image.
+
+.venv/
+
+__pycache__/
+
+.git/
+
+data/
+
+logs/
+
+logger.py
+
+notebooks/
+
+.gitignore
