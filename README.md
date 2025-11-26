@@ -17,7 +17,7 @@ The model and its TF-IDF vectorizer are saved together inside a single `.pkl` fi
 
 ## Features
 
-### ✔ Machine Learning  
+### Machine Learning  
 - TF-IDF text vectorization  
 - LinearSVC classifier  
 - Cleaned training pipeline  
