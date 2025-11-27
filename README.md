@@ -49,14 +49,18 @@ project/data/raw/
 
 ### 2. Install Dependencies
 
+```bash
 cd Amazon_Reviews_Electronics/project
 pip install -r requirements.txt
-
+```
 ------------------------------------------------------------
 
 ### 3. Run the ML Pipeline (Training)
 
+
+```bash
 python src/pipeline/main.py
+```
 
 This will clean the data, vectorize reviews, train the LinearSVC model, and save:
 project/models/model.pkl
@@ -65,17 +69,22 @@ project/models/model.pkl
 
 ### 4. Run the FastAPI Server (Local)
 
+```bash
 uvicorn app:app --reload --port 8000
+```
 
 ------------------------------------------------------------
 
 ### 5. Build and Run with Docker
 
 Build the image:
+```bash
 docker build -t arhb/amazon_reviews_api .
+```
 
 Run the container:
+```bash
 docker run -p 8000:8000 arhb/amazon_reviews_api
-
+```
 API available at:
 http://127.0.0.1:8000
