@@ -34,7 +34,63 @@ The model and its TF-IDF vectorizer are saved together inside a single `.pkl` fi
 ### Docker  
 The API is fully containerized using a simple and lightweight `python:3.11-slim` image.
 
-Run anywhere with:
+---
+Project Tree : 
 
-```bash
+project/
+│── data/
+│   └── raw/
+│   └── processed/
+│── models/
+│   └── model.pkl
+│── src/
+│   └── pipeline/
+│── app.py
+│── requirements.txt
+│── Dockerfile
+
+---
+
+## How to Run the Project
+
+### 1. Download the Dataset
+Download the dataset from Kaggle:
+https://www.kaggle.com/datasets/shivamparab/amazon-electronics-reviews
+
+Place the raw file `Electronics_5.json` inside:
+project/data/raw/
+
+------------------------------------------------------------
+
+### 2. Install Dependencies
+
+cd Amazon_Reviews_Electronics/project
+pip install -r requirements.txt
+
+------------------------------------------------------------
+
+### 3. Run the ML Pipeline (Training)
+
+python src/pipeline/main.py
+
+This will clean the data, vectorize reviews, train the LinearSVC model, and save:
+project/models/model.pkl
+
+------------------------------------------------------------
+
+### 4. Run the FastAPI Server (Local)
+
+uvicorn app:app --reload --port 8000
+
+------------------------------------------------------------
+
+### 5. Build and Run with Docker
+
+Build the image:
+docker build -t arhb/amazon_reviews_api .
+
+Run the container:
 docker run -p 8000:8000 arhb/amazon_reviews_api
+
+API available at:
+http://127.0.0.1:8000
