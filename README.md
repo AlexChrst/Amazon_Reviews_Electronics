@@ -38,12 +38,20 @@ The API is fully containerized using a simple and lightweight `python:3.11-slim`
 
 ## How to Run the Project
 
-### 1. Download the Dataset
+### 1. Clone the repo and Download the Dataset
+
+Clone the repo : 
+
+```bash
+git clone https://github.com/AlexChrst/Amazon_Reviews_Electronics.git
+cd Amazon_Reviews_Electronics
+```
+
 Download the dataset from Kaggle:
 https://www.kaggle.com/datasets/shivamparab/amazon-electronics-reviews
 
 Place the raw file `Electronics_5.json` inside:
-project/data/raw/
+`project/data/raw/`
 
 ------------------------------------------------------------
 
@@ -63,7 +71,7 @@ python src/pipeline/main.py
 ```
 
 This will clean the data, vectorize reviews, train the LinearSVC model, and save:
-project/models/model.pkl
+`project/models/model.pkl`
 
 ------------------------------------------------------------
 
@@ -87,4 +95,4 @@ Run the container:
 docker run -p 8000:8000 arhb/amazon_reviews_api
 ```
 API available at:
-http://127.0.0.1:8000
+`http://127.0.0.1:8000`
