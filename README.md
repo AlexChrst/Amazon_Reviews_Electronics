@@ -35,21 +35,6 @@ The model and its TF-IDF vectorizer are saved together inside a single `.pkl` fi
 The API is fully containerized using a simple and lightweight `python:3.11-slim` image.
 
 ---
-Project Tree : 
-
-project/
-│── data/
-│   └── raw/
-│   └── processed/
-│── models/
-│   └── model.pkl
-│── src/
-│   └── pipeline/
-│── app.py
-│── requirements.txt
-│── Dockerfile
-
----
 
 ## How to Run the Project
 
