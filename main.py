@@ -1,11 +1,8 @@
 from src.preprocessing import clean_dataset, import_data, export_data
 from src.pipeline import vectorize_texts, train_and_predict
 from src.config import PathConfig, ResultsConfig
-import sys
-from pathlib import Path
 
 if __name__ == "__main__":
-    sys.path.append(str(Path(__file__)))
     path_config = PathConfig(
         vectorizer_path="models/tfidf_vectorizer.pkl",
         svm_path="models/svm_model.pkl",
