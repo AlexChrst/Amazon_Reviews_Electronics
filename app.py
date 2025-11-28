@@ -6,7 +6,7 @@ import re
 
 
 class ReviewRequest(BaseModel):
-    review: str
+    review : str
 
 base_dir = Path(__file__).resolve().parent # Define the base directory. Path(__file__) gives the path of the current file,
 # .resolve() converts it to an absolute path, and .parent gets the directory containing this file. So wherever this script is located,
