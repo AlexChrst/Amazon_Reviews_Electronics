@@ -72,8 +72,25 @@ If so, place the raw file `Electronics_5.json` inside: `data/raw/`
 
 ### 2. Install Dependencies
 
+Create the environment
 ```bash
 uv venv
+```
+Activate the environment.
+
+For Linux/macOS (Bash/Zsh):
+```bash
+source .venv/bin/activate
+
+```
+
+For Windows (PowerShell):
+```bash
+.venv/Scripts/Activate.ps1
+```
+
+Install the dependencies
+```bash
 uv sync
 ```
 ------------------------------------------------------------
