@@ -7,10 +7,6 @@ This project is an end-to-end Machine Learning pipeline built on the **Amazon El
 - A production-ready **FastAPI** application
 - A Dockerized deployment
 
-The API exposes two endpoints:
-- `/predict` → predict the sentiment/grade of a review  
-- `/cleaned_text` → return the cleaned version of a raw review  
-
 The model and its TF-IDF vectorizer are saved together inside a single `.pkl` file for easy loading during inference.
 
 ---
@@ -20,15 +16,15 @@ The model and its TF-IDF vectorizer are saved together inside a single `.pkl` fi
 ### Machine Learning  
 - TF-IDF text vectorization  
 - LinearSVC classifier  
-- Cleaned training pipeline  
+- Training pipeline  
 - Training / test metrics logged  
 - Model & vectorizer saved as one pickle
 
 ### FastAPI application  
 - `/` → Welcome endpoint  
 - `/health` → Health check  
-- `/predict` → Sentiment prediction  
-- `/cleaned_text` → Returns cleaned text (lowercase + regex filtering)  
+- `/cleaned_text` → Simulate the cleaning pipeline on the text  
+- `/predict` → Using the model saved in pkl, predict the rating of the written review 
 - Automatic **Swagger UI** at `/docs`
 
 ### Docker  
@@ -40,26 +36,45 @@ The API is fully containerized using a simple and lightweight `python:3.11-slim`
 
 ### 1. Clone the repo and Download the Dataset
 
-Clone the repo : 
+A - Clone the repo : 
 
 ```bash
 git clone https://github.com/AlexChrst/Amazon_Reviews_Electronics.git
 cd Amazon_Reviews_Electronics
 ```
 
-Download the dataset from Kaggle:
-https://www.kaggle.com/datasets/shivamparab/amazon-electronics-reviews
+B - Install uv : 
 
-Place the raw file `Electronics_5.json` inside:
-`project/data/raw/`
+a - If on MacOS and Linux : 
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+b - If on Windows :
+
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+C - Download the dataset 
+
+a - Directly with download_data.py :
+
+```bash
+uv run .\download_data.py
+```
+
+b - ... or directly from Kaggle : https://www.kaggle.com/datasets/shivamparab/amazon-electronics-reviews
+If so, place the raw file `Electronics_5.json` inside: `data/raw/`
 
 ------------------------------------------------------------
 
 ### 2. Install Dependencies
 
 ```bash
-cd Amazon_Reviews_Electronics/project
-pip install -r requirements.txt
+uv venv
+uv sync
 ```
 ------------------------------------------------------------
 
@@ -67,11 +82,11 @@ pip install -r requirements.txt
 
 
 ```bash
-python src/pipeline/main.py
+uv run main.py
 ```
 
 This will clean the data, vectorize reviews, train the LinearSVC model, and save:
-`project/models/model.pkl`
+`models/model.pkl`
 
 ------------------------------------------------------------
 
