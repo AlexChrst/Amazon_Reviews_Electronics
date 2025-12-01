@@ -8,7 +8,8 @@ __pycache__/
 
 notebooks/
 # Do not export Jupyter notebooks
-models/
+models/svm_model.pkl
+models/tfidf_vectorizer.pkl
 # Do not export train algorithms
 logs/ 
 # Do not export the logs
