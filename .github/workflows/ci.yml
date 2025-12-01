@@ -28,4 +28,6 @@ jobs:
           uv sync --all-extras --dev
         
       - name: Run tests
-        run: uv run pytest
+        run: uv run pytest # Here, because I haven't specifically activated the virtual environment, I use `uv run` 
+        # to run pytest within the uv environment. While in my terminal, i have previously activated the uv environment directly so
+        # I can just run `pytest`.
