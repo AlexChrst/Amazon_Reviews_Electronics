@@ -1,0 +1,31 @@
+name: CI
+
+on: # Specify the events that trigger the workflow
+  push: # Here, the workflow runs on pushes to the main branches
+    branches:
+      - main 
+      - master
+  pull_request: # And also on each PR
+
+jobs:
+  tests: #  We define a job named "tests"
+    runs-on: ubuntu-latest # We specify the environment to run the job
+
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies with uv
+        run: |
+          uv sync --all-extras --dev
+        
+      - name: Run tests
+        run: pytest
