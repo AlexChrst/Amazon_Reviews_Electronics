@@ -30,6 +30,9 @@ The model and its TF-IDF vectorizer are saved together inside a single `.pkl` fi
 ### Docker  
 The API is fully containerized using a simple and lightweight `python:3.11-slim` image.
 
+### Continuous Integration
+The project includes a complete CI pipeline powered by GitHub Actions, running automated tests and building the Docker image on every push or pull request.
+
 ---
 
 ## How to Run the Project
