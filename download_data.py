@@ -1,7 +1,7 @@
 import kagglehub
 import shutil
 from pathlib import Path
-from src.preprocessing.logger import logger
+from logger import logger
 
 logger.info("Starting dataset download from Kaggle...")
 

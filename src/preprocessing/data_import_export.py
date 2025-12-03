@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from .logger import logger
+from logger import logger
 
 
 def import_data(raw_path, cleaned_path):
