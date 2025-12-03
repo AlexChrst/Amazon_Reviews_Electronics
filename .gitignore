@@ -10,6 +10,7 @@ notebooks/
 # Do not export Jupyter notebooks
 models/svm_model.pkl
 models/tfidf_vectorizer.pkl
+models/distilbert/
 # Do not export train algorithms
 logs/ 
 # Do not export the logs

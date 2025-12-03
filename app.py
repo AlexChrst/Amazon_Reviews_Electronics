@@ -14,8 +14,13 @@ base_dir = Path(__file__).resolve().parent # Define the base directory. Path(__f
 model_path = base_dir / "models" / "model.pkl" # Construct the full path to the model file by appending "models/model.pkl" to
 # the base directory.
 
+
 with open(model_path, "rb") as f: # We load the model using the constructed path.
     model = pickle.load(f)
+
+bert_model_path = base_dir / "models" / "distilbert"  # Construct the full path to the BERT model directory.
+
+
 
 app = FastAPI()  # Instantiate the FastAPI application
 

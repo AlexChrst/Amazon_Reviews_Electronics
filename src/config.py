@@ -13,3 +13,9 @@ class PathConfig:
 @dataclass
 class ResultsConfig:
     show_train_metrics: bool
+
+
+@dataclass
+class ModelConfig:
+    TFIDF_SVC: bool
+    BERT: bool
