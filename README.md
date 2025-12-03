@@ -118,6 +118,18 @@ uvicorn app:app --reload --port 8000
 
 ------------------------------------------------------------
 
+### 5. Run the Front End Streamlit
+
+Open another terminal and type : 
+
+```bash
+streamlit run streamlit_app.py
+```
+
+It should automatically open the web page.
+
+------------------------------------------------------------
+
 ### 5. Build and Run with Docker
 
 Build the image:
